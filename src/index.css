@@ -12,4 +12,7 @@ code {
     monospace;
 }
 
+.login-input {
+  border-radius: 200px;
+}
 
