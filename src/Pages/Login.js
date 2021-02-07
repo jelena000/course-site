@@ -51,17 +51,39 @@ export default class Login extends Component {
 
   genereateForm() {
     if (this.state.log && !this.state.pass) {
-      return <div>{this.generateLogin()}</div>;
+      return (
+        <div>
+          <div style={{ paddingBottom: 50, paddingTop: 122 }}>
+            <h2>
+              {this.state.log ? "Prijavite se" : "Registruj se"}
+              {this.state.pass ? "nmnmnm" : ""}
+            </h2>
+          </div>
+          <div>{this.generateLogin()}</div>
+        </div>
+      );
     } else if (!this.state.log && !this.state.pass) {
-      return <div>{this.generateRegister()}</div>;
+      return (
+        <div>
+          <div style={{ paddingBottom: 50, paddingTop: 122 }}>
+            <h2>Registracija</h2>
+          </div>
+          <div>{this.generateRegister()}</div>;
+        </div>
+      );
     } else if (this.state.pass && !this.state.log) {
-      return <div>{this.generateEmail()}</div>;
+      return (
+        <div>
+          <div style={{ paddingBottom: 50, paddingTop: 122 }}></div>
+          <div>{this.generateEmail()}</div>
+        </div>
+      );
     }
   }
 
   generateRegister() {
     return (
-      <div className="card" style={{ width: 400, padding: 20 }}>
+      <div className="" style={{ width: 400, padding: 20 }}>
         <div className="form-group">
           <input
             className="form-control login-input"
@@ -91,11 +113,26 @@ export default class Login extends Component {
         </div>
         <div className="form-group">
           <input
-            className="form-control"
+            className="form-control login-input"
             name="password"
             type="text"
             placeholder="Lozinka*"
-            onChange={(e) => {console.log('blaa'); this.setState({ password: e.currentTarget.value })}}
+            onChange={(e) => {
+              console.log("blaa");
+              this.setState({ password: e.currentTarget.value });
+            }}
+          />
+        </div>
+        <div className="form-group">
+          <input
+            className="form-control login-input"
+            name="password"
+            type="text"
+            placeholder="Potvrda lozinke*"
+            onChange={(e) => {
+              console.log("blaa");
+              this.setState({ password: e.currentTarget.value });
+            }}
           />
         </div>
         <div className="form-group">
@@ -103,7 +140,7 @@ export default class Login extends Component {
             className="form-control login-input"
             name="email"
             type="text"
-            placeholder="E-mail"
+            placeholder="E-mail*"
             onChange={(e) => this.setState({ email: e.currentTarget.value })}
           />
         </div>
@@ -130,7 +167,13 @@ export default class Login extends Component {
         >
           <div style={{ paddingBottom: 10 }}>
             <span>Imate nalog?</span>
-            <a href="" onClick={(e) => {e.preventDefault(); this.setState({ log: true, pass: false })}}>
+            <a
+              href=""
+              onClick={(e) => {
+                e.preventDefault();
+                this.setState({ log: true, pass: false });
+              }}
+            >
               Prijava
             </a>
           </div>
@@ -178,7 +221,7 @@ export default class Login extends Component {
           <button
             type="button"
             className="btn btn-primary"
-            style={{borderRadius: 100}}
+            style={{ borderRadius: 100 }}
             onClick={this.onSubmit}
           >
             Prijavi se
@@ -196,13 +239,22 @@ export default class Login extends Component {
         >
           <div style={{ paddingBottom: 10 }}>
             <span>Nemate nalog?</span>
-            <a href="#" onClick={(e) => {e.preventDefault(); this.setState({ log: false, pass: false})}}>
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                this.setState({ log: false, pass: false });
+              }}
+            >
               Registracija
             </a>
           </div>
           <div>
             <span>Zaboravili ste lozinku?</span>
-            <a href="#" onClick={(e) => this.setState({ pass: true, log:false })}>
+            <a
+              href="#"
+              onClick={(e) => this.setState({ pass: true, log: false })}
+            >
               Pošalji na e-mail adresu
             </a>
           </div>
@@ -213,7 +265,7 @@ export default class Login extends Component {
 
   generateEmail() {
     return (
-      <div className="card" style={{ width: 400, padding: 20 }}>
+      <div className="" style={{ width: 400, padding: 20 }}>
         <div className="form-group">
           <label
             htmlFor="exampleInputPassword1"
@@ -248,10 +300,12 @@ export default class Login extends Component {
         >
           <div style={{ paddingBottom: 10 }}>
             <span>Imate nalog?</span>
-            <a href="" onClick={(e) => 
-            { 
-              e.preventDefault(); this.setState({ log: true, pass:false })
-            }}
+            <a
+              href=""
+              onClick={(e) => {
+                e.preventDefault();
+                this.setState({ log: true, pass: false });
+              }}
             >
               Prijava
             </a>
@@ -272,21 +326,45 @@ export default class Login extends Component {
           height: "100vh",
         }}
       >
-        <div style={{flex: 1, textAlign: 'center', height: '100%', backgroundRepeat: 'round', backgroundSize: 'cover', backgroundColor: 'gray', backgroundImage: 'url("https://images.unsplash.com/photo-1612537550127-24232ea565aa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80")'}}></div>
+        <div
+          style={{
+            flex: 1,
+            textAlign: "center",
+            height: "100%",
+            backgroundRepeat: "round",
+            backgroundSize: "cover",
+            backgroundColor: "gray",
+            backgroundImage:
+              'url("https://images.unsplash.com/photo-1554230678-5213344dc151?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OTN8fGJpa2UlMjByZW50fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60")',
+          }}
+        ></div>
 
-        <div style={{
-          display: "flex",
-          flexDirection:'column',
-          alignItems: "center", flex: 1.5, textAlign: 'center', borderLeft: '1px solid gray',borderRight: '1px solid gray', height: '100%'}}>
-            <div style={{paddingBottom: 50, paddingTop: 122 }}>
-              <h2>
-                Prijavite se
-              </h2>
-            </div>
-            
-            {this.genereateForm()}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            flex: 1.5,
+            textAlign: "center",
+            borderLeft: "1px solid gray",
+            borderRight: "1px solid gray",
+            height: "100%",
+          }}
+        >
+          {this.genereateForm()}
         </div>
-        <div style={{flex: 1, textAlign: 'center', height: '100%', backgroundSize: 'cover',  backgroundRepeat: 'round', backgroundColor: 'gray', backgroundImage: 'url("https://images.unsplash.com/photo-1612537550127-24232ea565aa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80")'}}></div>
+        <div
+          style={{
+            flex: 1,
+            textAlign: "center",
+            height: "100%",
+            backgroundSize: "cover",
+            backgroundRepeat: "round",
+            backgroundColor: "gray",
+            backgroundImage:
+              'url("https://images.unsplash.com/photo-1536880411027-5ffdd818d3d0?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDJ8fHBlb3BsZSUyMGJpa2V8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+          }}
+        ></div>
       </div>
     );
   }
