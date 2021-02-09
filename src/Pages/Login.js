@@ -403,6 +403,7 @@ class Login extends Component {
         }}
       >
         <div
+          className="side-image"
           style={{
             flex: 1,
             textAlign: "center",
@@ -430,6 +431,7 @@ class Login extends Component {
           {this.genereateForm()}
         </div>
         <div
+        className="side-image"
           style={{
             flex: 1,
             textAlign: "center",
