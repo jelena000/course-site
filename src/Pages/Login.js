@@ -96,8 +96,9 @@ class Login extends Component {
       let fNameErr,
         uNameErr,
         passErr,
+        noteErr,
         emailErr = "";
-      this.setState({ fNameErr, uNameErr, passErr, emailErr });
+      this.setState({ fNameErr, uNameErr, passErr, emailErr, noteErr });
       return true;
     }
   };
@@ -224,7 +225,7 @@ class Login extends Component {
                 href=""
                 onClick={(e) => {
                   e.preventDefault();
-                  this.setState({ log: true, passForg: false });
+                  this.setState({ log: true, passForg: false, fNameErr:"", uNameErr:"", passErr:"", emailErr:"", noteErr:"" });
                 }}
               >
                 <span className="link-txt">Prijava</span>
